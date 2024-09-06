@@ -3,10 +3,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dashboard</title>
+    <link rel="icon" th:href="@{/favicon.png}" type="image/png">
+    <link th:href="@{/home1.css}" type="text/css" rel="stylesheet">    
     <link th:href="@{/main.css}" type="text/css" rel="stylesheet">
-    <link th:href="@{/home.css}" type="text/css" rel="stylesheet">
     <link th:href="@{/global.css}" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     <div class="bg-[#F0F2F5] w-screen h-screen flex flex-row">
@@ -20,26 +22,113 @@
             <div th:insert="fragments/navbar :: navbar"></div>
 
             <div id="maincontainer">
-                <div id="firstrow" class="flex flex-wrap flex-row justify-between h-auto w-full pt-2 mt-8 gap-8">
-                    <div id="item1" class="flex-1 bg-red-100 rounded-lg shadow-lg min-w-[250px] h-[140px]">
+                <div id="firstrow" class="flex flex-wrap flex-row justify-between h-auto w-full pt-2 mt-8 gap-6">
+                    <div id="item1" class="flex-1 border bg-white rounded-lg shadow-lg min-w-[260px] h-[120px] flex flex-row justify-between p-4 ">
+                        <div>
+                            <div>
+                                <h1 class="text-md font-bold text-gray-500">Sales</h1>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold mt-1">$100</p>
+                            </div>
+                            <div>
+                                <p class="text-sm mt-0.5 text-gray-500">+55% since last month</p>
+                            </div>
+                        </div>
+
+                        <div>
+                           <p class="text-sm text-gray-500"> 6 May - 7 May <p>
+                        </div>
 
                     </div>
-                    <div id="item2 " class="flex-1 bg-red-200 rounded-lg shadow-lg min-w-[250px] h-[140px]">
+                    <div id="item2" class="flex-1 border bg-white rounded-lg shadow-lg min-w-[260px] h-[120px] flex flex-row justify-between p-4 ">
+                        <div>
+                            <div>
+                                <h1 class="text-md font-bold text-gray-500">Customers</h1>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold mt-1">3,200</p>
+                            </div>
+                            <div>
+                                <p class="text-sm mt-0.5 text-gray-500">+12% since last month</p>
+                            </div>
+                        </div>
+
+                        <div>
+                           <p class="text-sm text-gray-500"> 6 May - 7 May <p>
+                        </div>
 
                     </div>
-                    <div id="item3" class="flex-1 bg-red-300 rounded-lg shadow-lg min-w-[250px] h-[140px]">
+                    <div id="item3" class="flex-1 border bg-white rounded-lg shadow-lg min-w-[260px] h-[120px] flex flex-row justify-between p-4 ">
+                        <div>
+                            <div>
+                                <h1 class="text-md font-bold text-gray-500">Revenue</h1>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold mt-1">$1,200</p>
+                            </div>
+                            <div>
+                                <p class="text-sm mt-0.5 text-gray-500">+12% since last month</p>
+                            </div>
+                        </div>
 
+                        <div>
+                           <p class="text-sm text-gray-500"> 6 May - 7 May <p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="secondrow" class="flex flex-wrap flex-row justify-between h-auto w-full pt-2 mt-8 gap-8">
+                    <!-- Pie Chart -->
+                    <div class="flex-1 border bg-white rounded-lg shadow-lg min-w-[500px] h-[400px] p-4 flex flex-col">
+                        <h1 class="text-md font-bold text-gray-500 mb-4">Sales Breakdown</h1>
+                        <div class="flex-1">
+                        <div id="pieChart"><div>                            
+                        </div>
+
+                    </div>
+                
+                    <!-- Line Graph -->
+                    <div class="flex-1 border bg-white rounded-lg shadow-lg min-w-[500px] h-[400px] p-4">
+                        <h1 class="text-md font-bold text-gray-500 mb-4">Revenue Trend</h1>
                     </div>
                 </div>
+                
                 
             </div>
 
         </div>
     </div>
 </body>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script>
+    // Pie Chart
+    var pieOptions = {
+        chart: {
+            type: 'pie',
+            height: '100%', // Make the chart fill the container height
+            width: '100%'   // Make the chart fill the container width
+        },
+        labels: ['Product A', 'Product B', 'Product C'],
+        series: [300, 500, 200],
+        colors: ['#FF4560', '#775DD0', '#00E396'],
+        dataLabels: {
+            enabled: false // This will hide the percentage labels
+        },
+        
+    }
+    var pieChart = new ApexCharts(document.querySelector("#pieChart"), pieOptions);
+    pieChart.render();
+
+</script>
 <script th:src="@{/js/global.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
+
 </html>
 
 
