@@ -1,0 +1,54 @@
+@media (max-width: 1000px) {
+    #navigation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px; /* Same as the width you used for navigation */
+        height: 100%;
+        transform: translateX(-100%); /* Initially hidden */
+        transition: transform 0.3s ease; /* Smooth transition for sliding in/out */
+        z-index: 10; /* Make sure it appears on top of other elements */
+    }
+
+    /* When the navigation is open */
+    #navigation.open {
+        transform: translateX(0);
+    }
+
+    #menuIcon {
+        display: block;
+    }
+
+    #closeIcon {
+        display: block;
+    }
+
+
+}
+
+@keyframes rotate-down {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotate-up {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.flip-down {
+    animation: rotate-down 0.5s forwards;
+}
+
+.flip-up {
+    animation: rotate-up 0.5s forwards;
+}
+

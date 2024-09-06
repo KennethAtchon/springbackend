@@ -1,0 +1,43 @@
+<!-- fragments/navbar.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Navbar Fragment</title>
+</head>
+<body>
+    <th:block th:fragment="navbar">
+        <div id="navbar" class="w-full h-16 rounded-lg shadow-lg flex items-center justify-between px-6 border">
+            <!-- Left side: Breadcrumbs -->
+            <div class="text-sm">
+
+                <nav class="flex space-x-2 items-center">
+                <div id="menuIcon" class="hidden cursor-pointer text-lg">
+                    <i class="fas fa-bars"></i>
+                </div>                    
+                    <a href="#" class="hover:underline">Dashboard</a>
+                    <span>/</span>
+                    <a href="#" class="hover:underline">Projects</a>
+                </nav>
+            </div>
+
+            <!-- Right side: Icons -->
+            <div class="flex space-x-6 text-xl text-gray-500">
+                <!-- Alerts Icon -->
+                <button>
+                    <i class="fas fa-bell"></i>
+                </button>
+
+                <!-- Profile Icon -->
+                <button>
+                    <i class="fas fa-user"></i>
+                </button>
+
+                <!-- Settings Icon -->
+                <button>
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+    </th:block>
+</body>
+</html>

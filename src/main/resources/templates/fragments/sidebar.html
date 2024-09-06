@@ -1,0 +1,78 @@
+<!-- fragments/sidebar.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sidebar Fragment</title>
+</head>
+<body>
+    <th:block th:fragment="sidebar">
+        <div id="navigation" class="w-[250px] h-full p-4">
+            <div class="flex flex-col h-full bg-[#404048] rounded-2xl shadow-lg text-white pt-8 pl-2 pr-2">
+                <div id="closeIcon" class="absolute top-5 left-8 text-xl cursor-pointer hidden">
+                    <i class="fas fa-times"></i>
+                </div>
+                <!-- Profile Section with Dropdown -->
+                <div class="relative">
+                    
+                    <button class="flex items-center justify-between w-full py-3 px-4 hover:bg-[#55555a] focus:outline-none rounded-lg" id="profileDropdownButton">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-lg"></i>
+                            <span class="ml-3">Name</span>
+                        </div>
+                        <div id="chevronIcon">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </button>
+                    <div class="hidden flex-col absolute w-full mt-2 bg-[#55555a] rounded-lg" id="profileDropdown">
+                        <a href="#" class="block py-2 px-4 hover:bg-[#66666d] rounded-t-lg">Profile</a>
+                        <a href="#" class="block py-2 px-4 hover:bg-[#66666d]">Settings</a>
+                        <a href="#" class="block py-2 px-4 hover:bg-[#66666d] rounded-b-lg">Logout</a>
+                    </div>
+                </div>
+
+                <!-- Sections -->
+                <hr class="my-4 border-gray-600">
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-tachometer-alt text-lg"></i>
+                    <span class="ml-3">Dashboard</span>
+                </div>
+
+                <hr class="my-4 border-gray-600">
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-box text-lg"></i>
+                    <span class="ml-3">Products</span>
+                </div>
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-shopping-cart text-lg"></i>
+                    <span class="ml-3">Orders</span>
+                </div>
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-users text-lg"></i>
+                    <span class="ml-3">Customers</span>
+                </div>
+
+                <hr class="my-4 border-gray-600">
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-robot text-lg"></i>
+                    <span class="ml-3">Automation</span>
+                </div>
+
+                <hr class="my-4 border-gray-600">
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-bullhorn text-lg"></i>
+                    <span class="ml-3">Marketing</span>
+                </div>
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-chart-line text-lg"></i>
+                    <span class="ml-3">Reports/Analytics</span>
+                </div>
+                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                    <i class="fas fa-ticket-alt text-lg"></i>
+                    <span class="ml-3">Tickets</span>
+                </div>
+            </div>
+        </div>
+    </th:block>
+
+</body>
+</html>
