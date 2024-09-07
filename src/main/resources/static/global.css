@@ -52,5 +52,26 @@
     animation: rotate-up 0.5s forwards;
 }
 
-  
 
+#maincontainer {
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#maincontainer::-webkit-scrollbar {
+    width: 0.5em; /* For Webkit browsers */
+}
+
+#maincontainer::-webkit-scrollbar-track {
+    border-radius: 100vw;
+}
+
+#maincontainer::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 0%);
+    border-radius: 100vw;
+}
+
+#maincontainer::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 33%)
+}

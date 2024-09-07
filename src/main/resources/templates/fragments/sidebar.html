@@ -32,24 +32,30 @@
 
                 <!-- Sections -->
                 <hr class="my-4 border-gray-600">
-                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                <a th:href="@{/}" class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer flex items-center">
                     <i class="fas fa-tachometer-alt text-lg"></i>
                     <span class="ml-3">Dashboard</span>
-                </div>
+                </a>
 
                 <hr class="my-4 border-gray-600">
-                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+
+                <!-- Products Link -->
+                <a th:href="@{/products}" class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer flex items-center">
                     <i class="fas fa-box text-lg"></i>
                     <span class="ml-3">Products</span>
-                </div>
-                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                </a>
+
+                <!-- Orders Link -->
+                <a th:href="@{/orders}" class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer flex items-center">
                     <i class="fas fa-shopping-cart text-lg"></i>
                     <span class="ml-3">Orders</span>
-                </div>
-                <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
+                </a>
+
+                <!-- Customers Link -->
+                <a th:href="@{/customers}" class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer flex items-center">
                     <i class="fas fa-users text-lg"></i>
                     <span class="ml-3">Customers</span>
-                </div>
+                </a>
 
                 <hr class="my-4 border-gray-600">
                 <div class="py-3 px-4 hover:bg-[#55555a] rounded-lg cursor-pointer">
