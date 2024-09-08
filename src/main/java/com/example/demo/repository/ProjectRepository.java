@@ -4,7 +4,11 @@ import com.example.demo.model.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long> {
-    // You can define custom queries here if needed
+
+    // Custom query to find a project by adminUserId
+    Optional<Project> findByAdminUserId(Long adminUserId);
 }

@@ -61,7 +61,7 @@
 			<dependency>
 				<groupId>org.postgresql</groupId>
 				<artifactId>postgresql</artifactId>
-				<version>42.5.0</version> <!-- Ensure this is the latest version -->
+				<version>42.6.0</version> <!-- Ensure this is the latest version -->
 			</dependency>
 
 			<!-- Optional: If you need REST functionality for JPA repositories -->
