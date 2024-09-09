@@ -4,6 +4,7 @@ import com.example.demo.model.AdminUser;
 import com.example.demo.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class AdminUserController {
 
     @Autowired
     private AdminUserService adminUserService;
+
 
     // Get all admin users
     @GetMapping
@@ -30,9 +32,24 @@ public class AdminUserController {
     }
 
     // Create a new admin user
-    @PostMapping
-    public AdminUser createAdminUser(@RequestBody AdminUser adminUser) {
-        return adminUserService.saveAdminUser(adminUser);
+    @PostMapping("/create")
+    public String createAdminUser(
+            @RequestParam("username") String username,
+            @RequestParam("email") String email,
+            @RequestParam("password") String password,
+            @RequestParam("project-name") String projectName) {
+
+        // Create the AdminUser object
+        AdminUser adminUser = new AdminUser();
+        adminUser.setUsername(username);
+        adminUser.setEmail(email);
+        adminUser.setPasswordHash(password);  // You should encode the password
+
+        // Save the AdminUser and create a Project with the provided project name
+        adminUserService.saveAdminUserWithProject(adminUser, projectName);
+
+        // Return the view for the home page
+        return "Successfully created admin user and project for " + username + "!"; // This will render home.html
     }
 
     // Update an existing admin user
