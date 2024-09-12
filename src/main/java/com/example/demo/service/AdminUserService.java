@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.config.PasswordHasher;
 import com.example.demo.model.AdminUser;
 import com.example.demo.model.Project;
 import com.example.demo.repository.AdminUserRepository;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +15,12 @@ public class AdminUserService {
 
     @Autowired
     private AdminUserRepository adminUserRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
     
     @Autowired
     private ProjectService projectService;
+    
+    @Autowired
+    private PasswordHasher passwordHasher;
 
     // Get all admin users
     public List<AdminUser> getAllAdminUsers() {
@@ -45,15 +45,16 @@ public class AdminUserService {
     // Save or update an admin user
     public AdminUser saveAdminUser(AdminUser adminUser) {
         // Hash the password before saving
-        adminUser.setPasswordHash(passwordEncoder.encode(adminUser.getPasswordHash()));
+        String hashedPassword = passwordHasher.hashPassword(adminUser.getPasswordHash());
+        adminUser.setPasswordHash(hashedPassword);
 
-        // Save the admin user first
+        // Save the admin user
         AdminUser savedAdminUser = adminUserRepository.save(adminUser);
 
         // Create a new project for the admin user
         Project project = new Project();
         project.setAdminUser(savedAdminUser);
-        project.setName(savedAdminUser.getUsername() + "'s Project"); // Example project name
+        project.setName(savedAdminUser.getUsername() + "'s Project");  // Example project name
         project.setDescription("Default project for " + savedAdminUser.getUsername());
         projectService.saveProject(project);
 
@@ -62,18 +63,19 @@ public class AdminUserService {
 
     public AdminUser saveAdminUserWithProject(AdminUser adminUser, String projectName) {
         // Hash the password before saving
-        adminUser.setPasswordHash(passwordEncoder.encode(adminUser.getPasswordHash()));
-    
-        // Save the admin user first
+        String hashedPassword = passwordHasher.hashPassword(adminUser.getPasswordHash());
+        adminUser.setPasswordHash(hashedPassword);
+
+        // Save the admin user
         AdminUser savedAdminUser = adminUserRepository.save(adminUser);
-    
+
         // Create a new project for the admin user with the provided project name
         Project project = new Project();
         project.setAdminUser(savedAdminUser);
-        project.setName(projectName);  // Use the project name from the form
+        project.setName(projectName);  // Use the provided project name
         project.setDescription("Default project description for " + savedAdminUser.getUsername());
         projectService.saveProject(project);
-    
+
         return savedAdminUser;
     }
 

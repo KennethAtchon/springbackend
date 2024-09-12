@@ -4,7 +4,6 @@ import com.example.demo.model.AdminUser;
 import com.example.demo.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +28,17 @@ public class AdminUserController {
     public ResponseEntity<AdminUser> getAdminUserById(@PathVariable Long id) {
         Optional<AdminUser> adminUser = adminUserService.getAdminUserById(id);
         return adminUser.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // login a admin user
+    @PostMapping("/signin")
+    public String loginAdminUser(@RequestParam("username") String username, @RequestParam("password") String password) {
+        Optional<AdminUser> adminUser = adminUserService.getAdminUserByUsername(username);
+        if (adminUser.isPresent() && adminUser.get().getPasswordHash().equals(password)) {
+            return "YEs";
+        }
+
+        return "No";
     }
 
     // Create a new admin user
