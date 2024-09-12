@@ -1,6 +1,10 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -8,7 +12,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
+@Data
+@Builder
+@AllArgsConstructor
 @Entity
 @Table(name = "admin_users")
 public class AdminUser  implements UserDetails {
