@@ -20,25 +20,25 @@
                 <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500">HarborDash</h1>
             </div>
             <h2 class="text-3xl font-bold text-gray-700 text-center mb-6">Sign Up</h2>
-            <form th:action="@{/api/admin-users/create}" method="post">
+            <form th:action="@{/signup}" th:object="${SignUpForm}" method="post">
                 <div class="mb-6">
                     <label class="block text-gray-600 text-sm font-bold mb-2" for="project-name">Project Name</label>
-                    <input class="w-full px-4 py-3 border rounded-lg" type="text" id="project-name" name="project-name" placeholder="Enter your project name" required>
+                    <input class="w-full px-4 py-3 border rounded-lg" type="text" id="project-name" name="project-name" placeholder="Enter your project name" required autofocus="autofocus">
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-600 text-sm font-bold mb-2" for="username">Username</label>
-                    <input class="w-full px-4 py-3 border rounded-lg" type="text" id="username" name="username" placeholder="Enter your username" required>
+                    <input class="w-full px-4 py-3 border rounded-lg" type="text" id="username" name="username" placeholder="Enter your username" required autofocus="autofocus">
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-600 text-sm font-bold mb-2" for="email">Email</label>
-                    <input class="w-full px-4 py-3 border rounded-lg" type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <input class="w-full px-4 py-3 border rounded-lg" type="email" id="email" name="email" placeholder="Enter your email" required autofocus="autofocus">
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-600 text-sm font-bold mb-2" for="password">Password</label>
-                    <input class="w-full px-4 py-3 border rounded-lg" type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <input class="w-full px-4 py-3 border rounded-lg" type="password" id="password" name="password" placeholder="Enter your password" required autofocus="autofocus">
                 </div>
                 <div class="mb-6 text-center">
-                    <button class="w-full bg-green-500 text-white py-3 px-4 rounded-lg hover:bg-green-600">Sign Up</button>
+                    <button type="submit" class="w-full bg-green-500 text-white py-3 px-4 rounded-lg hover:bg-green-600">Sign Up</button>
                 </div>
                 <p class="text-center text-sm text-gray-600">Already have an account? <a href="/signin" class="text-blue-500">Sign In</a></p>
 
