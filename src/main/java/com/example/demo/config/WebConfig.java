@@ -16,6 +16,6 @@ public class WebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authenticationInterceptor)
                 .addPathPatterns("/**")  // Apply the interceptor to all routes
-                .excludePathPatterns("/signup", "/signin");  // Exclude certain public routes
+                .excludePathPatterns("/signup", "/signin", "/css/**", "/images/**", "/js/**");  // Exclude certain public routes
     }
 }

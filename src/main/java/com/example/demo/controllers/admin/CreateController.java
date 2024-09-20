@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.components.SignInForm;
 import com.example.demo.components.SignUpForm;
 import com.example.demo.config.PasswordHasher;
 import com.example.demo.model.AdminUser;
 import com.example.demo.service.AdminUserService;
+
 
 import java.util.Optional;
 
@@ -24,9 +24,10 @@ public class CreateController {
     @Autowired
     private PasswordHasher passwordHasher;
 
+
     // Handle SignUp
     @PostMapping("/signup")
-    public String createAdminUser(@ModelAttribute(name="SignUpForm") SignUpForm signUpForm) {
+    public String createAdminUser(@ModelAttribute(name="SignUpForm") SignUpForm signUpForm, Model model) {
         String username = signUpForm.getUsername();
         String password = signUpForm.getPassword();
         String email = signUpForm.getEmail();
@@ -39,6 +40,8 @@ public class CreateController {
 
         // Save the AdminUser and associate the project
         adminUserService.saveAdminUserWithProject(adminUser, projectName);
+
+
 
         // Redirect to home page after successful signup
         return "home";
