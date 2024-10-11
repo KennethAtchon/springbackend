@@ -17,7 +17,10 @@
                     <button class="flex items-center justify-between w-full py-3 px-4 hover:bg-[#55555a] focus:outline-none rounded-lg" id="profileDropdownButton">
                         <div class="flex items-center">
                             <i class="fas fa-user text-lg"></i>
-                            <span class="ml-3">Name</span>
+                                <div class="ml-3">Name</div>
+                                <div th:text="${#authentication}"></div>  <!-- To see the full principal -->
+                                <div th:text="${#authentication}"></div>        <!-- To see the name -->
+
                         </div>
                         <div id="chevronIcon">
                             <i class="fas fa-chevron-down"></i>

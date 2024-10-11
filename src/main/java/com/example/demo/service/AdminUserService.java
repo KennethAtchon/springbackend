@@ -67,7 +67,12 @@ public class AdminUserService {
         adminUser.setPasswordHash(hashedPassword);
 
         // Save the admin user
-        AdminUser savedAdminUser = adminUserRepository.save(adminUser);
+        AdminUser savedAdminUser = adminUserRepository.save(adminUser); 
+
+        // Validate the project name
+        if (projectName == null || projectName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Project name cannot be null or empty");
+        }
 
         // Create a new project for the admin user with the provided project name
         Project project = new Project();

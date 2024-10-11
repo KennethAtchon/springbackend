@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Background Image -->
-    <div class="w-screen h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('/bgimage.jpg');">
+    <div class="w-screen h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('/images/bgimage.jpg');">
 
         <!-- Sign Up Card -->
         <div class="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
@@ -23,7 +23,7 @@
             <form th:action="@{/signup}" th:object="${SignUpForm}" method="post">
                 <div class="mb-6">
                     <label class="block text-gray-600 text-sm font-bold mb-2" for="project-name">Project Name</label>
-                    <input class="w-full px-4 py-3 border rounded-lg" type="text" id="project-name" name="project-name" placeholder="Enter your project name" required autofocus="autofocus">
+                    <input class="w-full px-4 py-3 border rounded-lg" type="text" id="projectName" name="projectName" placeholder="Enter your project name" required autofocus="autofocus">
                 </div>
                 <div class="mb-6">
                     <label class="block text-gray-600 text-sm font-bold mb-2" for="username">Username</label>
